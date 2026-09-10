@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk With a Life Advisor | Contact</title>
+  <meta name="description" content="Request a confidential, no-obligation conversation with a Life Advisor about your business and MCA situation." />
+  <link rel="icon" href="images/LIF_LOGO-ICON.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="logo" aria-label="Life Advisors home"><img src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" /></a>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li class="nav-dropdown">
+          <a href="mca-lifeline.html">MCA Solutions</a>
+          <ul class="dropdown-menu">
+            <li><a href="mca-lifeline.html">The MCA Lifeline™</a></li>
+            <li><a href="multiple-mcas.html">Multiple MCAs</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </li>
+        <li><a href="why-life-advisors.html">Why Life Advisors</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html">Talk With a Life Advisor</a></div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
+      <h1>You built a business. Let’s talk about protecting what’s next.</h1>
+      <p>Confidential. Business-focused. No obligation.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <form class="contact-form" action="#" method="post">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first">First name</label>
+            <input id="first" name="first" required />
+          </div>
+          <div class="form-group">
+            <label for="last">Last name</label>
+            <input id="last" name="last" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="business">Business name</label>
+          <input id="business" name="business" />
+        </div>
+        <div class="form-group">
+          <label for="situation">Which best describes your situation?</label>
+          <select id="situation" name="situation">
+            <option value="">Select one</option>
+            <option>Payments are tightening cash flow</option>
+            <option>We have more than one MCA</option>
+            <option>Considering another advance</option>
+            <option>I want to understand options</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">What would you like us to know?</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Request a confidential conversation</button>
+        <p class="subnote">This design preview does not yet send email. Production will connect the form to Life Advisors’ intake.</p>
+      </form>
+      <aside class="contact-card">
+        <h3>Life Advisors</h3>
+        <p>Boca Raton, Florida</p>
+        <p class="mt-24">Phone, email, and street address will be added once confirmed. Until then, use this form.</p>
+        <p class="mt-24">Current site: <a href="https://lifead.com">lifead.com</a></p>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div><img class="footer-logo" src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" /><p>Business financial advocacy for companies navigating MCA pressure and seeking a path forward.</p></div>
+        <div><h3>MCA Solutions</h3><ul><li><a href="mca-lifeline.html">The MCA Lifeline™</a></li><li><a href="how-it-works.html">How It Works</a></li></ul></div>
+        <div><h3>Learn</h3><ul><li><a href="resources.html">Resources</a></li></ul></div>
+        <div><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+      </div>
+      <div class="legal"><span>© 2026 Life Advisors. All rights reserved.</span></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
