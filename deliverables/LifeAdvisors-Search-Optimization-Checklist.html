@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Advisors — Prioritized Search Optimization Checklist</title>
+  <style>
+    :root {
+      --navy: #00587C;
+      --ink: #1E2529;
+      --gold: #C79A45;
+      --mist: #EFF3F5;
+      --muted: #5B6770;
+      --line: #D5DEE3;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--white);
+      font: 15px/1.5 "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 40px 80px;
+    }
+    header.doc-head {
+      border-bottom: 3px solid var(--navy);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .kicker {
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1.2;
+      margin: 8px 0 12px;
+      color: var(--navy);
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--navy);
+      font-size: 20px;
+      margin: 40px 0 12px;
+    }
+    h3 {
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin: 28px 0 10px;
+    }
+    p { margin: 0 0 12px; }
+    .note {
+      background: var(--mist);
+      border-left: 4px solid var(--gold);
+      padding: 14px 16px;
+      margin: 16px 0 28px;
+    }
+    .legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0 28px;
+    }
+    .legend div {
+      background: var(--mist);
+      padding: 12px 14px;
+      border-top: 3px solid var(--navy);
+    }
+    .legend strong { display: block; color: var(--navy); margin-bottom: 4px; }
+    .legend span { color: var(--muted); font-size: 13px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+      margin: 0 0 8px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      vertical-align: top;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    th {
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 700;
+    }
+    td.step { width: 26%; font-weight: 700; color: var(--navy); }
+    td.client { width: 37%; }
+    td.impl { width: 37%; }
+    tr.none td.client { color: var(--muted); }
+    .num {
+      display: inline-block;
+      min-width: 1.6em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    footer.doc-foot {
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media print {
+      body { background: #fff; }
+      .page { padding: 0; max-width: none; }
+      header.doc-head { break-after: avoid; }
+      h2, h3 { break-after: avoid; }
+      table { break-inside: auto; }
+      tr { break-inside: avoid; }
+      .legend { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="doc-head">
+      <div class="kicker">WWDB · Life Advisors · 26 September 2026</div>
+      <h1>Prioritized Search Optimization Checklist</h1>
+      <p class="meta">SEO · AEO (answer engines) · GEO / AIO (AI search and citation) · SXO (search experience)</p>
+      <p class="meta">Structure for each item: <strong>Step</strong> → <strong>Client info needed</strong> → <strong>Implementation</strong></p>
+    </header>
+
+    <div class="note">
+      <strong>Binding rule.</strong> Do not invent statistics, testimonials, team biographies, “day one” claims, or guaranteed payment reductions to complete this list. Those items stay off the site until the client provides verified, approved material. Optimization here means answering questions the site can already answer carefully, and making names, addresses, and policies consistent.
+    </div>
+
+    <div class="legend">
+      <div>
+        <strong>Priority 1 — Before launch</strong>
+        <span>Legal, identity, and on-page mismatches that search and AI engines will quote if left as-is.</span>
+      </div>
+      <div>
+        <strong>Priority 2 — Highest-value content</strong>
+        <span>New or expanded copy using approved cautious language. Biggest lift for ranking and AI citation.</span>
+      </div>
+      <div>
+        <strong>Priority 3 — After launch</strong>
+        <span>Proof, operations, and extras. Do not block the public site unless the client wants them first.</span>
+      </div>
+    </div>
+
+    <h2>Priority 1 — Before public launch</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Client info needed</th>
+          <th>Implementation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="step"><span class="num">1.1</span> Confirm the legal business name</td>
+          <td class="client">Confirm the legal entity name. The consultation form currently says “Life Advisors and Development.” The rest of the site, schema, and llms.txt say “Life Advisors.” Provide: legal name, any DBA, and whether both should appear.</td>
+          <td class="impl">Apply one consistent set across footer, consent language, JSON-LD (<code>legalName</code> / <code>alternateName</code>), contact card, and llms.txt so search and AI engines treat this as one company.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">1.2</span> Publish a counsel-approved Privacy Policy</td>
+          <td class="client">Counsel-approved privacy policy covering consultation forms, analytics, advertising pixels, SMS, retention, and deletion. Until then, the live page states that a real policy will replace the stub.</td>
+          <td class="impl">Replace privacy.html body and meta description. Remove “pending legal review” language. Keep the page indexed only after counsel signs off.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">1.3</span> Publish counsel-approved Terms of Use</td>
+          <td class="client">Counsel-approved terms of use, including educational MCA disclosures and SMS terms (STOP / HELP language is already on the contact form).</td>
+          <td class="impl">Replace terms.html body and meta description. Keep the SMS consent links pointing to this page. Remove “pending legal review.”</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">1.4</span> Legal review of existing MCA copy</td>
+          <td class="client">Redlines or written approval of the MCA restructuring language already on the site (what the service is, what it is not, no guaranteed outcomes).</td>
+          <td class="impl">Apply counsel edits sitewide and in llms.txt. Do not add new service claims while waiting. Technical SEO tags stay; only the reviewed sentences change.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">1.5</span> Lock name, address, phone, and hours to Google Business Profile</td>
+          <td class="client">Exact Google Business Profile (or listing) fields: business name, street line, suite, city, state, ZIP, phone, hours, website URL. Confirm whether the street should read “Northwest” or “NW” — the site currently uses both.</td>
+          <td class="impl">Match footer, contact page, schema PostalAddress, and llms.txt character-for-character to the listing. This is required for local/GEO consistency.</td>
+        </tr>
+        <tr class="none">
+          <td class="step"><span class="num">1.6</span> Align page H1s with title tags</td>
+          <td class="client">Optional: approve the proposed H1s below. If no reply, WWDB can implement the query-aligned H1s and keep the current lines as subheads.<br /><br />
+            How It Works H1 → “How MCA Restructuring Works”<br />
+            Contact H1 → “Request a Confidential Consultation”<br />
+            Why Life Advisors H1 → “Why Life Advisors”<br />
+            MCA Lifeline H1 (optional) → “The MCA Lifeline™: Merchant Cash Advance Restructuring”
+          </td>
+          <td class="impl">Change the visible H1 on those interior pages so Google and answer engines see the same phrase as the title tag. Move the current campaign lines under the H1 as supporting copy. No new claims.</td>
+        </tr>
+        <tr class="none">
+          <td class="step"><span class="num">1.7</span> Make homepage social description match the meta description</td>
+          <td class="client">None.</td>
+          <td class="impl">Set index.html <code>og:description</code> to the same sentence as the meta description so search, social, and schema do not emit two different summaries.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">1.8</span> Hide Privacy/Terms from search until 1.2 and 1.3 are done</td>
+          <td class="client">Only if counsel policies will not be ready at launch: confirm that stubs may be <code>noindex</code> so AI engines do not cite “pending legal review.”</td>
+          <td class="impl">Add <code>noindex, follow</code> to privacy.html and terms.html and drop them from sitemap.xml until the approved text is live. Then reverse that.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">1.9</span> Decide how the “5 Questions” page is used</td>
+          <td class="client">Is lp-before-another-mca.html an educational page that should rank, or a paid-ad landing page only?</td>
+          <td class="impl">If educational: keep it in the sitemap and complete Priority 2.1 (add answers). If paid-only: <code>noindex</code>, remove from sitemap, and stop treating it as the Resources hub’s main article.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Priority 2 — Highest-value content (no new claims)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Client info needed</th>
+          <th>Implementation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="step"><span class="num">2.1</span> Add short answers under the five “before another MCA” questions</td>
+          <td class="client">Approve WWDB-drafted 40–80 word educational answers, or supply preferred answers. Drafts will stay educational: payment cadence, overlapping withdrawals, reviewing existing obligations — not a promised alternative product.</td>
+          <td class="impl">Place an answer under each of the five questions. Keep ItemList schema in sync with the visible Q&amp;A. This is the largest AEO/GEO gap on an already-indexed URL.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">2.2</span> Build a real “MCA vs traditional financing” page</td>
+          <td class="client">Approve turning the current Resources paragraph into its own page. Confirm we may describe typical differences (receivables purchase vs underwritten loan, withdrawal frequency vs scheduled payment) as education, not lending advice.</td>
+          <td class="impl">Create a 400–700 word page with its own URL, title, description, definition, contrast list, and disclaimer. Link it from resources.html, the homepage resource cards, sitemap.xml, and llms.txt.</td>
+        </tr>
+        <tr class="none">
+          <td class="step"><span class="num">2.3</span> Add a definition and FAQs on Why Life Advisors</td>
+          <td class="client">None, if we may reuse homepage FAQ answers. Optional: approve the three questions — What is Life Advisors? How is this different from taking another MCA? Is Life Advisors a law firm?</td>
+          <td class="impl">Add an answer-first definition at the top of why-life-advisors.html, a visible FAQ accordion, and matching FAQPage schema so AI engines have something to cite besides differentiator cards.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">2.4</span> Add Contact FAQs for location, hours, and consultation terms</td>
+          <td class="client">Confirm the published hours, Boca Raton address, and that a consultation does not obligate enrollment (already stated on site).</td>
+          <td class="impl">Add visible Q&amp;A and FAQPage schema on contact.html: Where is Life Advisors located? What are office hours? Will a consultation obligate me to enroll?</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">2.5</span> State where the firm is based and whom it serves</td>
+          <td class="client">Confirm two facts, only if true: (1) corporate office is Boca Raton, Florida; (2) the practice works with businesses nationwide, or list any state restrictions.</td>
+          <td class="impl">Add one sentence on About, Contact, and llms.txt. Adjust schema <code>areaServed</code> if service is not nationwide. Do not imply local storefront hours are the same as nationwide availability unless that is accurate.</td>
+        </tr>
+        <tr class="none">
+          <td class="step"><span class="num">2.6</span> Connect Timothy Shaw to the Organization in schema</td>
+          <td class="client">None. Person schema for Timothy Shaw already exists on About.</td>
+          <td class="impl">Add Organization <code>founder</code> (or <code>employee</code>) pointing at the existing Person node so knowledge graphs and AI systems link leadership to the company.</td>
+        </tr>
+        <tr class="none">
+          <td class="step"><span class="num">2.7</span> Clean footer link labels</td>
+          <td class="client">None.</td>
+          <td class="impl">Footer currently lists both “MCA Restructuring” and “How It Works” to the same URL. Keep one label so crawl paths and users are not duplicated.</td>
+        </tr>
+        <tr class="none">
+          <td class="step"><span class="num">2.8</span> Make the MCA Lifeline breadcrumb a link</td>
+          <td class="client">None.</td>
+          <td class="impl">On mca-lifeline.html, change the plain-text “MCA Solutions” crumb into a link (same pattern as How It Works and Multiple MCAs).</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Priority 3 — After launch (client-supplied proof and operations)</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Step</th>
+          <th>Client info needed</th>
+          <th>Implementation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="step"><span class="num">3.1</span> Connect the consultation form to a real inbox or CRM</td>
+          <td class="client">Destination for leads: email address(es), CRM, or form vendor. Confirm who receives SMS-consent records.</td>
+          <td class="impl">Replace <code>action="#"</code> with a working endpoint, success state, and conversion event. Keep the two consent checkboxes as implemented.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">3.2</span> Official social and directory URLs</td>
+          <td class="client">Canonical LinkedIn, Facebook, and any other official profiles. Do not send personal pages unless they should represent the company.</td>
+          <td class="impl">Add Organization <code>sameAs</code> in JSON-LD. Optional footer icons only after URLs are confirmed.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">3.3</span> Additional team biographies</td>
+          <td class="client">Verified names, titles, short bios, and approved photos. The About page already says these will be published after verification — leave the placeholder until this packet arrives.</td>
+          <td class="impl">Add team cards on about.html and Person schema for each named person. Do not invent titles or credentials.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">3.4</span> Verified testimonials, ratings, or business counts</td>
+          <td class="client">Written permission, full quote, attribution, and any number the client will stand behind. No composite or “typical” results.</td>
+          <td class="impl">Place only verified items on Why Life Advisors / Home. Add Review schema only when a real, attributable review is on the page. Never use AggregateRating without a genuine rating source.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">3.5</span> Industry pages from existing landing-page copy</td>
+          <td class="client">Approve organic pages for restaurants/food service, trucking/transportation, and contractors/construction using language already on the paid MCA Lifeline landing page.</td>
+          <td class="impl">Create three interior pages, unique titles/descriptions, internal links from Multiple MCAs and Resources, sitemap entries. Keep outcome language cautious.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">3.6</span> Unique social images per key page</td>
+          <td class="client">Optional approved photography. If none, WWDB can produce branded 1200×630 graphics from existing assets.</td>
+          <td class="impl">Replace the single sitewide og-life-advisors.jpg on service and education URLs so shares are not identical.</td>
+        </tr>
+        <tr class="none">
+          <td class="step"><span class="num">3.7</span> Compress the homepage hero video</td>
+          <td class="client">None, unless the client prefers to supply a smaller master file.</td>
+          <td class="impl">Compress videos/hero.mp4 (currently large) for Core Web Vitals / SXO. Keep the existing muted autoplay implementation.</td>
+        </tr>
+        <tr>
+          <td class="step"><span class="num">3.8</span> Google Business Profile claim and review workflow</td>
+          <td class="client">Owner access to the Google Business Profile (or authorization for WWDB). Confirm NAP from 1.5 first.</td>
+          <td class="impl">Client or WWDB (with access) claims/verifies the listing, matches website URL to https://lifead.com/, and keeps hours/address in lockstep with the site. This step is not completable from the website files alone.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Already done — do not redo</h2>
+    <p>These are complete from the 26 September 2026 technical pass and do not need client files unless something above changes them:</p>
+    <p>Unique titles and meta descriptions · canonicals to lifead.com · Open Graph and Twitter cards · JSON-LD Organization, ProfessionalService, BreadcrumbList, Service, HowTo, FAQPage, Person, ItemList · visible FAQs on Home, MCA Lifeline, How It Works, Multiple MCAs, and Resources · robots.txt allowing search and AI crawlers · sitemap.xml · llms.txt · 404 page · noindex on the paid lp-mca-lifeline.html duplicate · skip links and nav landmarks · contact email, phone, office, hours, and dual consent checkboxes · verified Timothy Shaw portrait and restaurant section image.</p>
+
+    <h2>Suggested client packet (one email)</h2>
+    <p>Ask Life Advisors for the following in a single reply so Priority 1 can finish:</p>
+    <ol>
+      <li>Legal name and any DBA (1.1)</li>
+      <li>Counsel-approved Privacy Policy and Terms, or permission to noindex the stubs (1.2, 1.3, 1.8)</li>
+      <li>Redlines or approval of current MCA copy (1.4)</li>
+      <li>Google Business Profile screenshot or exported NAP + hours (1.5)</li>
+      <li>Yes/no on nationwide service and any excluded states (2.5)</li>
+      <li>Whether the 5 Questions URL should rank or stay ads-only (1.9)</li>
+      <li>Optional: approval of the proposed H1s (1.6) and the five-question answer drafts once WWDB writes them (2.1)</li>
+    </ol>
+
+    <footer class="doc-foot">
+      Life Advisors production website · WWDB Integrated Marketing · Interior-page SEO / AEO / GEO / AIO / SXO checklist · 26 September 2026<br />
+      File: deliverables/LifeAdvisors-Search-Optimization-Checklist.html · To save a PDF: open this file in a browser and use Print → Save as PDF.
+    </footer>
+  </div>
+</body>
+</html>

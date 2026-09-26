@@ -6,6 +6,20 @@
   <title>Merchant Cash Advance Restructuring | Life Advisors</title>
   <meta name="description" content="Life Advisors helps business owners evaluate and restructure existing merchant cash advances, address cash-flow pressure, and understand a path forward." />
   <link rel="canonical" href="https://lifead.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#00587C" />
+  <meta property="og:site_name" content="Life Advisors" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://lifead.com/images/og-life-advisors.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Life Advisors — Merchant Cash Advance Restructuring" />
+  <meta name="twitter:title" content="Merchant Cash Advance Restructuring | Life Advisors" />
+  <meta name="twitter:description" content="Life Advisors helps business owners evaluate and restructure existing merchant cash advances, address cash-flow pressure, and understand a path forward." />
+  <meta name="twitter:image" content="https://lifead.com/images/og-life-advisors.jpg" />
+  <meta name="twitter:image:alt" content="Life Advisors — Merchant Cash Advance Restructuring" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
   <meta property="og:title" content="Merchant Cash Advance Restructuring | Life Advisors" />
   <meta property="og:description" content="Business-focused help for owners evaluating how to restructure existing merchant cash advance obligations and regain control of cash flow." />
   <meta property="og:type" content="website" />
@@ -21,26 +35,86 @@
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": [
+          "Organization",
+          "ProfessionalService"
+        ],
         "@id": "https://lifead.com/#organization",
         "name": "Life Advisors",
         "url": "https://lifead.com/",
-        "logo": "https://lifead.com/images/LIF_LOGO-NAV.svg"
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://lifead.com/images/LIF_LOGO-NAV.svg"
+        },
+        "image": "https://lifead.com/images/og-life-advisors.jpg",
+        "description": "Life Advisors provides business-focused guidance for companies navigating merchant cash advance pressure and evaluating a path toward restructuring existing MCA obligations.",
+        "email": "support@lifead.com",
+        "telephone": "+1-888-511-6259",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "2200 Corporate Boulevard Northwest, Suite 410",
+          "addressLocality": "Boca Raton",
+          "addressRegion": "FL",
+          "postalCode": "33431",
+          "addressCountry": "US"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday"
+            ],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+1-888-511-6259",
+          "email": "support@lifead.com",
+          "availableLanguage": "English"
+        },
+        "knowsAbout": [
+          "Merchant cash advance restructuring",
+          "Multiple merchant cash advances (MCA stacking)",
+          "Business cash flow"
+        ]
       },
       {
         "@type": "WebSite",
         "@id": "https://lifead.com/#website",
         "name": "Life Advisors",
         "url": "https://lifead.com/",
-        "publisher": { "@id": "https://lifead.com/#organization" }
+        "inLanguage": "en-US",
+        "publisher": {
+          "@id": "https://lifead.com/#organization"
+        }
       },
       {
         "@type": "WebPage",
         "@id": "https://lifead.com/#webpage",
         "url": "https://lifead.com/",
         "name": "Merchant Cash Advance Restructuring | Life Advisors",
-        "isPartOf": { "@id": "https://lifead.com/#website" },
-        "about": { "@id": "https://lifead.com/#organization" }
+        "isPartOf": {
+          "@id": "https://lifead.com/#website"
+        },
+        "about": {
+          "@id": "https://lifead.com/#organization"
+        },
+        "description": "Life Advisors helps business owners evaluate and restructure existing merchant cash advances, address cash-flow pressure, and understand a path forward.",
+        "inLanguage": "en-US",
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://lifead.com/images/og-life-advisors.jpg",
+          "width": 1200,
+          "height": 630
+        },
+        "dateModified": "2026-09-26"
       },
       {
         "@type": "FAQPage",
@@ -109,24 +183,26 @@
               "text": "No. The initial conversation is intended to help the team understand the situation and help the owner learn whether the service may be appropriate. Any program terms, costs, responsibilities, and risks should be provided for review before the owner decides whether to proceed."
             }
           }
-        ]
+        ],
+        "@id": "https://lifead.com/#faq"
       }
     ]
   }
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
-    <div class="container nav">
+    <nav class="container nav" aria-label="Primary">
       <a href="index.html" class="logo" aria-label="Life Advisors home">
-        <img src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" />
+        <img src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" width="522" height="148" decoding="async" />
       </a>
       <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-links">
         <li class="nav-dropdown">
           <a href="mca-lifeline.html">MCA Solutions</a>
           <ul class="dropdown-menu">
-            <li><a href="mca-lifeline.html">The MCA Lifeline™</a></li>
+            <li><a href="mca-lifeline.html">The MCA Lifeline<span class="tm">™</span></a></li>
             <li><a href="multiple-mcas.html">Multiple MCAs</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
           </ul>
@@ -138,10 +214,10 @@
       <div class="nav-cta">
         <a class="btn btn-primary btn-sm" href="contact.html" data-event="consultation_cta_click" data-cta-location="header">Talk With a Life Advisor</a>
       </div>
-    </div>
+    </nav>
   </header>
 
-  <main>
+  <main id="main-content" tabindex="-1">
   <section class="hero" id="hero">
     <div class="hero-bg" aria-hidden="true">
       <video class="hero-video" autoplay muted loop playsinline disablepictureinpicture preload="auto">
@@ -205,8 +281,8 @@
   <section class="section section--alt text-center" id="mca-lifeline">
     <div class="container">
       <div class="eyebrow">A Coordinated Path Forward</div>
-      <h2>The MCA Lifeline™</h2>
-      <p class="lead center-lead">The MCA Lifeline is Life Advisors’ consultative approach to helping business owners evaluate and restructure existing merchant cash advance obligations. It begins with the complete financial picture—not another advance—and builds a coordinated strategy around the business, its cash flow, and its current MCA commitments.</p>
+      <h2>The MCA Lifeline<span class="tm">™</span></h2>
+      <p class="lead center-lead">The MCA Lifeline<span class="tm">™</span> is Life Advisors’ consultative approach to helping business owners evaluate and restructure existing merchant cash advance obligations. It begins with the complete financial picture—not another advance—and builds a coordinated strategy around the business, its cash flow, and its current MCA commitments.</p>
       <div class="steps">
         <div class="step">
           <div class="num">01</div>
@@ -224,9 +300,9 @@
           <p>When the business moves forward, Life Advisors begins working through the restructuring process and helps the owner navigate the path ahead.</p>
         </div>
       </div>
-      <p class="lead center-lead">The MCA Lifeline is not a new merchant cash advance and is not presented as a loan that pays off existing MCAs.</p>
+      <p class="lead center-lead">The MCA Lifeline<span class="tm">™</span> is not a new merchant cash advance and is not presented as a loan that pays off existing MCAs.</p>
       <div class="section-cta-row">
-        <a class="btn btn-primary" href="mca-lifeline.html">Explore the MCA Lifeline</a>
+        <a class="btn btn-primary" href="mca-lifeline.html">Explore the MCA Lifeline<span class="tm">™</span></a>
         <a class="btn btn-outline" href="contact.html" data-event="consultation_cta_click" data-cta-location="homepage_lifeline">Request a Confidential Review</a>
       </div>
     </div>
@@ -448,13 +524,13 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img class="footer-logo" src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" />
-          <p>Life Advisors provides business-focused guidance for companies navigating merchant cash advance pressure and evaluating a path toward restructuring existing MCA obligations.</p>
+          <img class="footer-logo" src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" width="522" height="148" loading="lazy" decoding="async" />
+          <p>Life Advisors provides business-focused guidance for companies navigating merchant cash advance pressure and evaluating a path toward restructuring existing MCA obligations.</p><address class="footer-contact"><a href="tel:+18885116259">(888) 511-6259</a><br /><a href="mailto:support@lifead.com">support@lifead.com</a><br />2200 Corporate Boulevard NW, Suite 410<br />Boca Raton, FL 33431</address>
         </div>
         <div>
           <h3>MCA Solutions</h3>
           <ul>
-            <li><a href="mca-lifeline.html">The MCA Lifeline™</a></li>
+            <li><a href="mca-lifeline.html">The MCA Lifeline<span class="tm">™</span></a></li>
             <li><a href="how-it-works.html">MCA Restructuring</a></li>
             <li><a href="multiple-mcas.html">Multiple MCAs</a></li>
             <li><a href="how-it-works.html">How It Works</a></li>
