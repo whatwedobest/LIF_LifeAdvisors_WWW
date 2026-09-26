@@ -1,0 +1,21 @@
+{
+  "name": "Life Advisors",
+  "short_name": "Life Advisors",
+  "description": "Merchant cash advance restructuring for business owners.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FFFFFF",
+  "theme_color": "#00587C",
+  "icons": [
+    {
+      "src": "images/LIF_LOGO-ICON.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

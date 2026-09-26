@@ -21,7 +21,10 @@ if (hamburger) {
 const currentPage = location.pathname.split("/").pop() || "index.html";
 document.querySelectorAll(".nav-links a").forEach((a) => {
   const href = a.getAttribute("href");
-  if (href === currentPage) a.classList.add("active");
+  if (href === currentPage) {
+    a.classList.add("active");
+    a.setAttribute("aria-current", "page");
+  }
 });
 
 document.querySelectorAll(".accordion-trigger").forEach((btn) => {

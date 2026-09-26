@@ -27,3 +27,12 @@ Then visit http://localhost:8080
 - Legal review of MCA-related disclosures
 
 Photography currently uses temporary Unsplash placeholders and should be replaced with commissioned Life Advisors photography.
+
+## Search, answer-engine & AI optimization (Sept 26, 2026)
+
+- Every page: robots meta, Open Graph + Twitter cards (`images/og-life-advisors.jpg`, 1200×630), apple-touch icon, web manifest, skip link, `<nav>` landmarks, breadcrumb `<nav>` with `aria-current`, logo dimensions, footer NAP (phone, email, address)
+- JSON-LD `@graph` on every page: WebPage/AboutPage/ContactPage/CollectionPage, BreadcrumbList, Organization + ProfessionalService (address, phone, hours), WebSite; plus Service (MCA Lifeline™), HowTo (How It Works), FAQPage (MCA Lifeline, Multiple MCAs, How It Works, Resources, LP), Person (Timothy Shaw), ItemList (Resources, 5 Questions)
+- Visible FAQ blocks and answer-first definitions reuse approved copy only — no new claims
+- `robots.txt`, `sitemap.xml`, `llms.txt`, `404.html`, `site.webmanifest`
+- `lp-mca-lifeline.html` is `noindex, follow` (paid-campaign duplicate of `mca-lifeline.html`) and excluded from the sitemap
+- Pre-change copies: `../_backup-Life_Advisors_WWW-pre-SEO-2026-09-26/`

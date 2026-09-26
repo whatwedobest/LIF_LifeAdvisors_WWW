@@ -1,0 +1,23 @@
+# Life Advisors — https://lifead.com
+User-agent: *
+Allow: /
+Disallow: /deliverables/
+
+# Search and AI answer engines are explicitly welcome
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /deliverables/
+
+Sitemap: https://lifead.com/sitemap.xml
