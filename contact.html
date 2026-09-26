@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talk With a Life Advisor | Contact</title>
-  <meta name="description" content="Request a confidential, no-obligation conversation with a Life Advisor about your business and MCA situation." />
+  <title>Request a Confidential Consultation | Life Advisors</title>
+  <meta name="description" content="Request a confidential, no-obligation conversation with Life Advisors about your business and existing merchant cash advance obligations." />
+  <link rel="canonical" href="https://lifead.com/contact.html" />
   <link rel="icon" href="images/LIF_LOGO-ICON.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,80 +30,154 @@
         <li><a href="resources.html">Resources</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
-      <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html">Talk With a Life Advisor</a></div>
+      <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" data-event="consultation_cta_click" data-cta-location="header">Talk With a Life Advisor</a></div>
     </div>
   </header>
 
+  <main>
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
-      <h1>You built a business. Let’s talk about protecting what’s next.</h1>
-      <p>Confidential. Business-focused. No obligation.</p>
+      <h1>You Built a Business. Let’s Talk About Protecting What Comes Next.</h1>
+      <p>Tell us what your business is facing, how many MCA obligations are active, and how the payments are affecting cash flow.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="consult">
     <div class="container contact-grid">
       <form class="contact-form" action="#" method="post">
         <div class="form-row">
           <div class="form-group">
             <label for="first">First name</label>
-            <input id="first" name="first" required />
+            <input id="first" name="first" required autocomplete="given-name" />
           </div>
           <div class="form-group">
             <label for="last">Last name</label>
-            <input id="last" name="last" required />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" />
+            <input id="last" name="last" required autocomplete="family-name" />
           </div>
         </div>
         <div class="form-group">
           <label for="business">Business name</label>
-          <input id="business" name="business" />
+          <input id="business" name="business" autocomplete="organization" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Business email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Business phone</label>
+            <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="state">State</label>
+            <input id="state" name="state" autocomplete="address-level1" />
+          </div>
+          <div class="form-group">
+            <label for="industry">Industry</label>
+            <select id="industry" name="industry">
+              <option value="">Select one</option>
+              <option>Restaurant / Food Service</option>
+              <option>Trucking / Transportation</option>
+              <option>General Contractor / Construction</option>
+              <option>Healthcare</option>
+              <option>Retail</option>
+              <option>Professional Services</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="revenue">Approximate monthly business revenue</label>
+            <select id="revenue" name="revenue">
+              <option value="">Select a range</option>
+              <option>Under $25,000</option>
+              <option>$25,000–$75,000</option>
+              <option>$75,000–$150,000</option>
+              <option>$150,000–$300,000</option>
+              <option>$300,000+</option>
+              <option>Unsure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mca-count">Number of active MCAs</label>
+            <select id="mca-count" name="mca-count">
+              <option value="">Select one</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4 or more</option>
+              <option>Unsure</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="balance">Approximate total MCA balance</label>
+            <select id="balance" name="balance">
+              <option value="">Select a range</option>
+              <option>Under $25,000</option>
+              <option>$25,000–$75,000</option>
+              <option>$75,000–$150,000</option>
+              <option>$150,000–$300,000</option>
+              <option>$300,000+</option>
+              <option>Unsure</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="current">Are payments current?</label>
+            <select id="current" name="current">
+              <option value="">Select one</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Some are current</option>
+              <option>Unsure</option>
+            </select>
+          </div>
         </div>
         <div class="form-group">
-          <label for="situation">Which best describes your situation?</label>
-          <select id="situation" name="situation">
+          <label for="contact-time">Preferred contact time</label>
+          <select id="contact-time" name="contact-time">
             <option value="">Select one</option>
-            <option>Payments are tightening cash flow</option>
-            <option>We have more than one MCA</option>
-            <option>Considering another advance</option>
-            <option>I want to understand options</option>
+            <option>Morning</option>
+            <option>Afternoon</option>
+            <option>Evening</option>
           </select>
         </div>
         <div class="form-group">
-          <label for="message">What would you like us to know?</label>
+          <label for="message">Brief optional message</label>
           <textarea id="message" name="message"></textarea>
         </div>
-        <button class="btn btn-primary" type="submit">Request a confidential conversation</button>
-        <p class="subnote">This design preview does not yet send email. Production will connect the form to Life Advisors’ intake.</p>
+        <div class="form-group checkbox">
+          <input id="consent" name="consent" type="checkbox" required />
+          <label for="consent">Please contact me about this consultation request. Submitting this form does not create a client relationship or guarantee eligibility or results.</label>
+        </div>
+        <button class="btn btn-primary" type="submit">Request a Confidential Consultation</button>
+        <p class="subnote">Do not provide Social Security numbers, bank credentials, full account numbers, or sensitive documents in this form. No obligation to explore your options. No guaranteed outcomes. Your information is handled according to our <a class="text-link" href="privacy.html">Privacy Policy</a>.</p>
       </form>
       <aside class="contact-card">
-        <h3>Life Advisors</h3>
-        <p>Boca Raton, Florida</p>
-        <p class="mt-24">Phone, email, and street address will be added once confirmed. Until then, use this form.</p>
+        <h3>A confidential conversation</h3>
+        <p>A Life Advisor can help you better understand the situation and determine whether an MCA restructuring review may be appropriate.</p>
+        <p class="mt-24">Phone, email, hours, and a public business address will be published here once verified.</p>
         <p class="mt-24">Current site: <a href="https://lifead.com">lifead.com</a></p>
       </aside>
     </div>
   </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
-        <div><img class="footer-logo" src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" /><p>Business financial advocacy for companies navigating MCA pressure and seeking a path forward.</p></div>
-        <div><h3>MCA Solutions</h3><ul><li><a href="mca-lifeline.html">The MCA Lifeline™</a></li><li><a href="how-it-works.html">How It Works</a></li></ul></div>
-        <div><h3>Learn</h3><ul><li><a href="resources.html">Resources</a></li></ul></div>
-        <div><h3>Company</h3><ul><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy</a></li></ul></div>
+        <div><img class="footer-logo" src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" /><p>Life Advisors provides business-focused guidance for companies navigating merchant cash advance pressure and evaluating a path toward restructuring existing MCA obligations.</p></div>
+        <div><h3>MCA Solutions</h3><ul><li><a href="mca-lifeline.html">The MCA Lifeline™</a></li><li><a href="how-it-works.html">MCA Restructuring</a></li><li><a href="multiple-mcas.html">Multiple MCAs</a></li><li><a href="how-it-works.html">How It Works</a></li></ul></div>
+        <div><h3>Learn</h3><ul><li><a href="resources.html">Resource Center</a></li><li><a href="lp-before-another-mca.html">Before You Take Another MCA</a></li><li><a href="index.html#faq">Frequently Asked Questions</a></li><li><a href="why-life-advisors.html">Why Life Advisors</a></li></ul></div>
+        <div><h3>Company</h3><ul><li><a href="about.html">About Life Advisors</a></li><li><a href="about.html#team">Meet the Team</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
       </div>
-      <div class="legal"><span>© 2026 Life Advisors. All rights reserved.</span></div>
+      <p class="footer-disclosure">Life Advisors provides business consulting and merchant cash advance restructuring services. Life Advisors is not a law firm and does not provide legal, tax, or accounting advice. Information on this website is educational and does not constitute professional advice or a guarantee of any result. Program availability, strategies, timelines, and outcomes vary according to the business, its agreements, funders, financial condition, participation, and other circumstances. Consult qualified legal, tax, or accounting professionals regarding your specific situation.</p>
+      <div class="legal"><span>© 2026 Life Advisors. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
     </div>
   </footer>
   <script src="js/main.js"></script>

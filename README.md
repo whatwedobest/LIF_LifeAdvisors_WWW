@@ -17,7 +17,7 @@ Then visit http://localhost:8080
 - Homepage architecture from the approved wireframe (hero through footer)
 - Inner pages for MCA Solutions, How It Works, Why Life Advisors, Resources, About, Contact, Privacy, and Terms
 - Two Meta campaign landing pages (out of main navigation)
-- Brand logo and color system from the Life Advisors identity (`#00567d` / `#3d97b5`)
+- Brand palette from Life Advisors Brand Guidelines (Sept 2026): Harbor Teal `#00587C`, Coast `#4298B5`, Gold `#C79A45`, Slate Ink `#1E2529`, Pale Mist `#EFF3F5`
 
 ## Still needed from the client
 

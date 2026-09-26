@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Before You Take Another MCA | Life Advisors</title>
-  <meta name="description" content="Five questions to ask before stacking another merchant cash advance." />
+  <meta name="description" content="Five questions to ask before taking another merchant cash advance, including payment frequency, cost, affordability, and how a new payment interacts with existing MCAs." />
+  <link rel="canonical" href="https://lifead.com/lp-before-another-mca.html" />
   <link rel="icon" href="images/LIF_LOGO-ICON.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,44 +15,46 @@
 <body>
   <header class="lp-header">
     <div class="container">
-      <a href="index.html" class="logo"><img src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" style="height:40px" /></a>
-      <a class="btn btn-outline btn-sm" href="#consult">Understand your options</a>
+      <a href="index.html" class="logo"><img src="images/LIF_LOGO-NAV.svg" alt="Life Advisors" /></a>
+      <a class="btn btn-outline btn-sm" href="#consult" data-event="consultation_cta_click" data-cta-location="lp_header">Request a Confidential Consultation</a>
     </div>
   </header>
 
+  <main>
   <section class="hero">
     <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1556742111-a301076d9d18?auto=format&fit=crop&w=2000&q=80')"></div>
     <div class="hero-overlay"></div>
     <div class="container">
       <div class="hero-copy">
-        <div class="eyebrow">Education-first campaign</div>
-        <h1>Before you take another MCA…</h1>
-        <p>Pause the reflex. Five questions can change whether the next advance is a solution—or another constraint.</p>
-        <a class="btn btn-primary" href="#questions">Read the five questions</a>
+        <div class="eyebrow">Before You Take Another MCA</div>
+        <h1>5 Questions to Ask Before Taking Another Merchant Cash Advance</h1>
+        <p>When cash flow is tight, another advance can appear to be the fastest answer. Before adding a new obligation, understand the payment structure, total purchased amount, frequency of withdrawals, and how the new payment will interact with every existing MCA.</p>
+        <a class="btn btn-primary" href="#questions">Read the Five Questions</a>
       </div>
     </div>
   </section>
 
   <section class="section" id="questions">
     <div class="container prose">
-      <h2>Five questions before you stack another advance</h2>
+      <h2>A practical checklist</h2>
+      <p>Use these questions to evaluate payment frequency, cost, affordability, contract terms, and whether new financing solves the underlying cash-flow problem.</p>
       <ol class="checklist" style="list-style:none;">
         <li>What is this advance actually covering—and for how long?</li>
         <li>What does the new payment cadence do to operating cash flow?</li>
-        <li>How many MCAs are already in place?</li>
+        <li>How many MCAs are already in place, and how will another withdrawal overlap with them?</li>
         <li>What happens if revenue slows for 30, 60, or 90 days?</li>
-        <li>Have you looked at options that are not another advance?</li>
+        <li>Have you looked at options that are not another advance, including a review of the obligations you already have?</li>
       </ol>
-      <p>This page is designed for paid traffic that is considering another MCA. Creative, messaging, and conversion are measured independently from the main website.</p>
+      <p>Can your business maintain its current MCA payments without taking another advance? If the honest answer is no—or you are not sure—it may be time to review the entire picture before taking on another obligation.</p>
     </div>
   </section>
 
   <section class="section section--alt">
     <div class="container">
       <div class="eyebrow">Understand your options</div>
-      <h2>You do not have to decide this in isolation.</h2>
-      <p class="lead">A confidential conversation with a Life Advisor is a lower-pressure path than stacking another product.</p>
-      <a class="btn btn-primary mt-24" href="#consult">Talk With a Life Advisor</a>
+      <h2>You do not have to evaluate this situation alone.</h2>
+      <p class="lead">A confidential conversation with a Life Advisor can help you understand whether an MCA restructuring review may be appropriate—without adding another advance first.</p>
+      <a class="btn btn-primary mt-24" href="#consult" data-event="consultation_cta_click" data-cta-location="before_another_mca">Talk With a Life Advisor</a>
     </div>
   </section>
 
@@ -59,20 +62,26 @@
     <div class="container contact-grid">
       <div>
         <h2>Confidential consultation</h2>
-        <p class="lead">Education-first lead path. No obligation.</p>
+        <p class="lead">No obligation to explore your options. No guaranteed outcomes.</p>
       </div>
       <form class="contact-form">
-        <div class="form-group"><label for="name">Name</label><input id="name" required /></div>
-        <div class="form-group"><label for="email">Email</label><input id="email" type="email" required /></div>
-        <div class="form-group"><label for="phone">Phone</label><input id="phone" type="tel" /></div>
+        <div class="form-group"><label for="name">Name</label><input id="name" required autocomplete="name" /></div>
+        <div class="form-group"><label for="email">Email</label><input id="email" type="email" required autocomplete="email" /></div>
+        <div class="form-group"><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel" /></div>
+        <div class="form-group checkbox">
+          <input id="consent" type="checkbox" required />
+          <label for="consent">Please contact me about this consultation request. Submitting this form does not create a client relationship or guarantee eligibility or results.</label>
+        </div>
         <button class="btn btn-primary" type="submit">Request a conversation</button>
       </form>
     </div>
   </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
-      <div class="legal"><span>© 2026 Life Advisors. Campaign landing page — not in main navigation.</span><span><a href="privacy.html">Privacy</a></span></div>
+      <p class="footer-disclosure">Life Advisors provides business consulting and merchant cash advance restructuring services. Life Advisors is not a law firm and does not provide legal, tax, or accounting advice. Information on this website is educational and does not constitute professional advice or a guarantee of any result.</p>
+      <div class="legal"><span>© 2026 Life Advisors. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
     </div>
   </footer>
   <script src="js/main.js"></script>

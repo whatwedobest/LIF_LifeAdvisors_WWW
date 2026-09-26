@@ -1,3 +1,10 @@
+const heroVideo = document.querySelector(".hero-video");
+if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  heroVideo.pause();
+  heroVideo.removeAttribute("autoplay");
+  heroVideo.remove();
+}
+
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
 const navCta = document.querySelector(".nav-cta");
@@ -20,7 +27,19 @@ document.querySelectorAll(".nav-links a").forEach((a) => {
 document.querySelectorAll(".accordion-trigger").forEach((btn) => {
   btn.addEventListener("click", () => {
     const item = btn.closest(".accordion-item");
-    item.classList.toggle("open");
+    const open = item.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+});
+
+document.querySelectorAll("[data-event]").forEach((el) => {
+  el.addEventListener("click", () => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: el.dataset.event,
+      location: el.dataset.ctaLocation || "",
+      label: el.textContent.trim()
+    });
   });
 });
 
@@ -35,7 +54,7 @@ if (form) {
       form.innerHTML = `
         <div class="text-center" style="padding:48px 12px;">
           <h3>Request received</h3>
-          <p class="lead center-lead" style="margin-top:12px;">Thank you. A Life Advisor will follow up about your confidential consultation. This preview form is not yet connected to email.</p>
+          <p class="lead center-lead" style="margin-top:12px;">Thank you. Your request has been received. A member of the Life Advisors team will contact you using the information you provided. Submitting this form does not create a client relationship or guarantee eligibility or results.</p>
         </div>`;
     }, 900);
   });
