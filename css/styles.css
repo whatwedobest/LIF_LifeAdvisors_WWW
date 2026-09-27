@@ -192,6 +192,9 @@ h3 { font-size: clamp(1.15rem, 1.8vw, 1.45rem); letter-spacing: -.015em; }
 .hero-bg {
   position: absolute;
   inset: 0;
+  background: var(--mist);
+}
+.hero-bg--photo {
   background:
     url("https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=2000&q=80") center/cover no-repeat;
 }
@@ -202,6 +205,11 @@ h3 { font-size: clamp(1.15rem, 1.8vw, 1.45rem); letter-spacing: -.015em; }
   height: 100%;
   object-fit: cover;
   object-position: center;
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+.hero-video.is-ready {
+  opacity: 1;
 }
 .hero-overlay {
   position: absolute;
@@ -584,6 +592,9 @@ h3 { font-size: clamp(1.15rem, 1.8vw, 1.45rem); letter-spacing: -.015em; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-video { display: none; }
+}
+@media (scripting: none) {
+  .hero-video { opacity: 1; }
 }
 
 .diagnostic {
