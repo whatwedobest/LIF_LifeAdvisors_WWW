@@ -1,3 +1,30 @@
+(function preventWidows() {
+  const blocks = document.querySelectorAll("h1, h2, h3, h4, p, .lead, .subnote, .accordion-body, .footer-disclosure, .diagnostic, .checklist li, .question-list p, .card p, .step p, .flow-item p, .article-copy p, .plain-answer p");
+  blocks.forEach((el) => {
+    if (el.closest("nav, form, script, style, .btn, .logo, .breadcrumb, .nav-links, .legal, .contact-hours")) return;
+    if (el.querySelector("p, ul, ol, table, form, .accordion, h1, h2, h3")) return;
+    const nodes = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    let node;
+    while ((node = walker.nextNode())) {
+      if (node.parentElement?.closest("script, style")) continue;
+      nodes.push(node);
+    }
+    if (!nodes.length) return;
+    const original = nodes.map((item) => item.nodeValue).join("");
+    const words = original.trim().split(/\s+/).filter(Boolean);
+    if (words.length < 2) return;
+    const next = original.replace(/(\S+)[ \t]+(\S+)([ \t]*)$/, "$1\u00A0$2$3");
+    if (next === original) return;
+    let offset = 0;
+    nodes.forEach((item) => {
+      const len = item.nodeValue.length;
+      item.nodeValue = next.slice(offset, offset + len);
+      offset += len;
+    });
+  });
+})();
+
 const heroVideo = document.querySelector(".hero-video");
 if (heroVideo) {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
