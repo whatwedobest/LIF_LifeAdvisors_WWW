@@ -1,8 +1,15 @@
 const heroVideo = document.querySelector(".hero-video");
-if (heroVideo && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  heroVideo.pause();
-  heroVideo.removeAttribute("autoplay");
-  heroVideo.remove();
+if (heroVideo) {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    heroVideo.pause();
+    heroVideo.removeAttribute("autoplay");
+    heroVideo.remove();
+  } else {
+    const revealHeroVideo = () => heroVideo.classList.add("is-ready");
+    if (heroVideo.readyState >= 2) revealHeroVideo();
+    heroVideo.addEventListener("canplay", revealHeroVideo, { once: true });
+    heroVideo.addEventListener("playing", revealHeroVideo, { once: true });
+  }
 }
 
 const hamburger = document.querySelector(".hamburger");
