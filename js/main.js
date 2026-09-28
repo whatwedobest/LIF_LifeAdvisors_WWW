@@ -1,7 +1,7 @@
 (function preventWidows() {
   const blocks = document.querySelectorAll("h1, h2, h3, h4, p, .lead, .subnote, .accordion-body, .footer-disclosure, .diagnostic, .checklist li, .question-list p, .card p, .step p, .flow-item p, .article-copy p, .plain-answer p");
   blocks.forEach((el) => {
-    if (el.closest("nav, form, script, style, .btn, .logo, .breadcrumb, .nav-links, .legal, .contact-hours")) return;
+    if (el.closest("nav, form, script, style, .btn, .logo, .breadcrumb, .nav-links, .legal, .contact-hours, .footer-social")) return;
     if (el.querySelector("p, ul, ol, table, form, .accordion, h1, h2, h3")) return;
     const nodes = [];
     const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
