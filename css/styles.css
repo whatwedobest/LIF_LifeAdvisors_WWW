@@ -515,7 +515,7 @@ h3 { font-size: clamp(1.15rem, 1.8vw, 1.45rem); letter-spacing: -.015em; }
 }
 .footer p, .footer li { font-size: .92rem; line-height: 1.8; }
 .footer a:hover { color: var(--gold); }
-.footer-logo { height: 72px; width: auto; margin-bottom: 18px; filter: brightness(0) invert(1); }
+.footer-logo { height: 72px; width: auto; margin-bottom: 18px; }
 .footer-social {
   display: flex;
   flex-wrap: wrap;
