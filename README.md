@@ -2,15 +2,33 @@
 
 First production design pass of the Life Advisors website, built from the client-approved architecture wireframe.
 
-Approved wireframe: [LIF_LifeAdvisors_LifeAD](https://github.com/whatwedobest/LIF_LifeAdvisors_LifeAD) · [preview](https://whatwedobest.github.io/LIF_LifeAdvisors_LifeAD/)
+Approved wireframe (archive only): [LIF_LifeAdvisors_LifeAD](https://github.com/whatwedobest/LIF_LifeAdvisors_LifeAD) · [wireframe preview](https://whatwedobest.github.io/LIF_LifeAdvisors_LifeAD/)
+
+## How we review changes
+
+| URL | Purpose |
+|-----|---------|
+| **http://localhost:8080/** | Edit and review locally (run server from **this** folder) |
+| **https://whatwedobest.github.io/LIF_LifeAdvisors_WWW/** | Shared test site after merge to `main` (→ Vercel + domain) |
+| **https://whatwedobest.github.io/LIF_LifeAdvisors_LifeAD/** | Old homepage wireframe only — not this site |
+
+1. Work on branch `preview` (or a feature branch off `main`).
+2. Review at http://localhost:8080
+3. Open a PR and merge to `main` when approved.
+
+Local `main` should match the GitHub Pages test site: `git checkout main && git pull --ff-only origin main`.
 
 ## Local preview
+
+From **this** repository folder (`Life_Advisors_WWW`):
 
 ```bash
 python3 -m http.server 8080
 ```
 
 Then visit http://localhost:8080
+
+If you still see the wireframe, another server is running from the wrong folder — stop it and start the command above here.
 
 ## What’s in this pass
 
