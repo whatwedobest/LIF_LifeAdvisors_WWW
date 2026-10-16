@@ -1,0 +1,235 @@
+/* ==========================================================================
+   MCA overlap illustration (#multiple-mcas on the home page)
+   Uses the existing tokens in css/styles.css (:root). Only the "withdrawal"
+   red is new — the site has no red token, so it's defined once here.
+   ========================================================================== */
+
+.mca-week {
+  --mca-draw: #B5473A;        /* money leaving the account */
+  --mca-draw-ink: #9A3528;    /* text on light red (AA contrast) */
+  --mca-draw-tint: #F7E6E2;   /* daily withdrawal cells */
+  --mca-cost: #DCE8EE;        /* operating-cost segments */
+  --mca-cost-alt: #C6DAE3;
+
+  margin: 0;
+  min-width: 0;
+  padding: 32px;               /* .diagram sets 36px; slightly tighter for the denser content */
+  font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+.mca-week,
+.mca-week * { box-sizing: border-box; }  /* keeps the to-scale bar widths exact */
+
+#multiple-mcas .split { align-items: start; }
+
+.mca-week .visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.mca-week p + p { margin-top: 0; }  /* site-wide p+p spacing would offset the bar footer */
+
+/* Heading ---------------------------------------------------------------- */
+.mca-week__head { margin-bottom: 28px; }
+.mca-week__title {
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.mca-week__sub {
+  margin: 0;
+  font-size: .92rem;
+  color: var(--muted);
+}
+
+.mca-week__block + .mca-week__block { margin-top: 30px; }
+.mca-week__label { margin-bottom: 12px; font-size: .7rem; }  /* reuses .eyebrow */
+
+/* 1. Daily withdrawals grid ---------------------------------------------- */
+.mca-grid {
+  display: grid;
+  grid-template-columns: 4.6rem repeat(5, minmax(0, 1fr)) 4.6rem;
+  gap: 8px 6px;
+  align-items: center;
+  font-size: .85rem;
+}
+.mca-grid__day {
+  text-align: center;
+  font-size: .75rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.mca-grid__day--total,
+.mca-grid__total { text-align: right; }
+.mca-grid__name { font-weight: 700; color: var(--ink); }
+.mca-cell {
+  background: var(--mca-draw-tint);
+  color: var(--mca-draw-ink);
+  border-radius: var(--radius);
+  text-align: center;
+  padding: 7px 0;
+  font-variant-numeric: tabular-nums;
+}
+.mca-grid__total {
+  font-weight: 700;
+  color: var(--mca-draw-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.mca-week__sum {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: .88rem;
+  color: var(--muted);
+}
+.mca-week__sum strong {
+  font-size: 1rem;
+  color: var(--mca-draw-ink);
+  white-space: nowrap;
+}
+
+/* 2. Bars (drawn to scale; widths set inline via --w / --offset) --------- */
+.mca-bars { font-size: .8rem; }
+.mca-bars__track { position: relative; padding-top: 22px; }
+
+.mca-bar { display: flex; height: 36px; }
+.mca-bar__seg {
+  flex: 0 0 var(--w);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--white);
+  font-weight: 700;
+}
+.mca-bar__seg--mca  { background: var(--mca-draw); border-radius: var(--radius) 0 0 var(--radius); }
+.mca-bar__seg--left { background: var(--navy); }
+
+.mca-bars__costs-label {
+  margin: 14px 0 6px var(--at);
+  color: var(--muted);
+}
+.mca-bar--costs { position: relative; }
+.mca-bar--costs .mca-bar__seg:first-child { margin-left: var(--offset); }
+.mca-bar__seg--cost { background: var(--mca-cost); padding: 0; }
+.mca-bar__seg--alt  { background: var(--mca-cost-alt); }
+.mca-bar__seg--cost + .mca-bar__seg--cost { border-left: 2px solid var(--white); }
+
+.mca-bar__short {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: var(--from); right: 0;
+  background: repeating-linear-gradient(
+    45deg, var(--mca-draw) 0 3px, var(--mca-draw-tint) 3px 7px);
+}
+
+.mca-bars__deposit-mark {
+  position: absolute;
+  top: 0; bottom: -6px;
+  left: var(--at);
+  border-left: 1.5px dashed var(--ink);
+  pointer-events: none;
+  z-index: 1;
+}
+.mca-bars__deposit-mark span {
+  position: absolute;
+  top: 0;
+  right: 6px;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.mca-bars__keys { display: flex; margin-top: 8px; }
+.mca-bars__keys span {
+  flex: 0 0 var(--w);
+  min-width: 0;               /* keep to-scale widths even when the label is wider */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.mca-bars__keys span:first-child { margin-left: var(--offset); }
+.mca-bars__keys b { color: var(--ink); }
+
+.mca-bars__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 10px;
+}
+.mca-bars__note {
+  margin: 0;
+  max-width: 40%;
+  font-size: .9rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.mca-bars__short-label {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--mca-draw-ink);
+  white-space: nowrap;
+}
+
+/* 3. Cycle band ---------------------------------------------------------- */
+.mca-week__cycle {
+  margin-top: 26px;
+  padding: 16px 18px;
+  background: var(--navy);
+  border-radius: var(--radius);
+  color: var(--white);
+}
+.mca-week__cycle strong {
+  display: block;
+  font-family: Fraunces, Georgia, serif;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+.mca-week__cycle span { color: #D6E4EB; font-size: .9rem; }
+
+.mca-week__disclaimer {
+  margin: 14px 0 0;
+  font-size: .72rem;
+  color: var(--muted);
+}
+
+/* Responsive ------------------------------------------------------------- */
+.mca-show-sm { display: none; }
+
+@media (max-width: 640px) {
+  .mca-week { padding: 20px 16px; }
+  .mca-week__title { font-size: 1.15rem; }
+
+  .mca-grid {
+    grid-template-columns: 3.6rem repeat(5, minmax(0, 1fr)) 3.9rem;
+    gap: 6px 4px;
+    font-size: .72rem;
+  }
+  .mca-cell { padding: 6px 0; }
+
+  .mca-week__sum { flex-direction: column; gap: 4px; }
+
+  /* Segment labels move below the bar on small screens */
+  .mca-bar__seg span { display: none; }
+  .mca-bars__keys span { font-size: .68rem; }
+  .mca-bars__keys span:last-child { align-items: flex-end; }
+  .mca-hide-sm { display: none; }
+  .mca-show-sm { display: inline; }
+  .mca-bars__note { max-width: 55%; font-size: .82rem; }
+}

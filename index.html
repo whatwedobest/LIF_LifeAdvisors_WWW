@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/mca-overlap.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -378,12 +379,96 @@
         </div>
         <a class="btn btn-outline mt-32" href="multiple-mcas.html">Learn About Restructuring Multiple MCAs</a>
       </div>
-      <div class="diagram" role="img" aria-label="Diagram showing several merchant cash advance payments drawing from the same business cash flow and being reviewed together.">
-        <div class="dia-row"><div class="dia-box">MCA #1</div><div class="dia-arrow">→</div><div class="dia-box">Business cash flow</div></div>
-        <div class="dia-row"><div class="dia-box">MCA #2</div><div class="dia-arrow">→</div><div class="dia-box">Operating cash</div></div>
-        <div class="dia-row"><div class="dia-box">MCA #3</div><div class="dia-arrow">→</div><div class="dia-box">Coordinated review</div></div>
-        <div class="dia-row"><div class="dia-box">Full picture</div><div class="dia-arrow">→</div><div class="dia-box dia-box--result">Path forward</div></div>
-      </div>
+      <figure class="diagram mca-week" aria-labelledby="mcaWeekTitle" aria-describedby="mcaWeekDesc">
+        <figcaption class="mca-week__head">
+          <h3 id="mcaWeekTitle" class="mca-week__title">One account. Three MCAs. Every business day.</h3>
+          <p class="mca-week__sub">An illustrative week for a business depositing $10,000</p>
+        </figcaption>
+
+        <p id="mcaWeekDesc" class="visually-hidden">
+          Three merchant cash advances withdraw $400, $300 and $250 each business day, $4,750 a week in total.
+          Of $10,000 in weekly deposits, $5,250 is left to operate, but payroll, rent and materials cost $6,200,
+          leaving the business $950 short. The common response is another advance, which adds a fourth daily withdrawal.
+        </p>
+
+        <div class="mca-week__block" aria-hidden="true">
+          <p class="eyebrow mca-week__label">Daily withdrawals from your account</p>
+
+          <div class="mca-grid">
+            <span></span>
+            <span class="mca-grid__day">Mon</span>
+            <span class="mca-grid__day">Tue</span>
+            <span class="mca-grid__day">Wed</span>
+            <span class="mca-grid__day">Thu</span>
+            <span class="mca-grid__day">Fri</span>
+            <span class="mca-grid__day mca-grid__day--total">Week</span>
+
+            <span class="mca-grid__name">MCA #1</span>
+            <span class="mca-cell">−$400</span><span class="mca-cell">−$400</span><span class="mca-cell">−$400</span><span class="mca-cell">−$400</span><span class="mca-cell">−$400</span>
+            <span class="mca-grid__total">−$2,000</span>
+
+            <span class="mca-grid__name">MCA #2</span>
+            <span class="mca-cell">−$300</span><span class="mca-cell">−$300</span><span class="mca-cell">−$300</span><span class="mca-cell">−$300</span><span class="mca-cell">−$300</span>
+            <span class="mca-grid__total">−$1,500</span>
+
+            <span class="mca-grid__name">MCA #3</span>
+            <span class="mca-cell">−$250</span><span class="mca-cell">−$250</span><span class="mca-cell">−$250</span><span class="mca-cell">−$250</span><span class="mca-cell">−$250</span>
+            <span class="mca-grid__total">−$1,250</span>
+          </div>
+
+          <div class="mca-week__sum">
+            <span>Taken out before payroll, rent, or materials</span>
+            <strong>−$4,750 a week</strong>
+          </div>
+        </div>
+
+        <!-- Bars are drawn to scale. Track width = deposits + shortfall = $10,950.
+             MCA 4,750 = 43.38% · Left 5,250 = 47.95% · Deposits end at 91.32%
+             Costs start at 43.38%: Payroll 3,500 = 31.96% · Rent 1,200 = 10.96% · Materials 1,500 = 13.70%
+             Shortfall 950 = 8.68% (91.32% → 100%). Recalculate these if you change the numbers. -->
+        <div class="mca-week__block" aria-hidden="true">
+          <div class="mca-week__labelrow">
+            <p class="eyebrow mca-week__label">Where the $10,000 goes</p>
+          </div>
+
+          <div class="mca-bars">
+            <div class="mca-bars__track">
+            <div class="mca-bars__deposit-mark" style="--at: 91.32%"><span>$10,000 deposited</span></div>
+
+            <div class="mca-bar">
+              <div class="mca-bar__seg mca-bar__seg--mca" style="--w: 43.38%"><span>MCA payments</span> <b>$4,750</b></div>
+              <div class="mca-bar__seg mca-bar__seg--left" style="--w: 47.95%"><span>Left to operate</span> <b>$5,250</b></div>
+            </div>
+
+            <p class="mca-bars__costs-label" style="--at: 43.38%"><span class="mca-hide-sm">This week's operating costs</span><span class="mca-show-sm">Operating costs</span></p>
+            <div class="mca-bar mca-bar--costs" style="--offset: 43.38%">
+              <div class="mca-bar__seg mca-bar__seg--cost" style="--w: 31.96%"></div>
+              <div class="mca-bar__seg mca-bar__seg--cost mca-bar__seg--alt" style="--w: 10.96%"></div>
+              <div class="mca-bar__seg mca-bar__seg--cost" style="--w: 13.70%"></div>
+              <div class="mca-bar__short" style="--from: 91.32%"></div>
+            </div>
+            </div><!-- /.mca-bars__track -->
+
+            <div class="mca-bars__keys" style="--offset: 43.38%">
+              <span style="--w: 31.96%"><b>Payroll</b>$3,500</span>
+              <span style="--w: 10.96%"><b>Rent</b>$1,200</span>
+              <span style="--w: 13.70%"><b>Materials</b>$1,500</span>
+            </div>
+
+            <div class="mca-bars__foot">
+              <p class="mca-bars__note">After the MCA payments, this week's costs no longer fit in what's left.</p>
+              <p class="mca-bars__short-label">$950 short</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mca-week__cycle">
+          <strong>The usual fix: another MCA to cover the gap.</strong>
+          <span>That adds a fourth daily withdrawal. Review all three together first.</span>
+        </div>
+
+        <p class="mca-week__disclaimer">Illustrative example only. Actual payments, terms, and costs vary by business and agreement.</p>
+      </figure>
     </div>
   </section>
 
