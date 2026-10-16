@@ -30,6 +30,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="mca-calculator/mca-daily-draw.css" />
+  <script src="mca-calculator/mca-daily-draw.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -217,11 +219,16 @@
             <li><a href="how-it-works.html">How It Works</a></li>
           </ul>
         </li>
-        <li><a href="why-life-advisors.html">Why Life Advisors</a></li>
+        <li class="nav-dropdown">
+          <a href="why-life-advisors.html">About Life Advisors</a>
+          <ul class="dropdown-menu">
+            <li><a href="why-life-advisors.html">Why Life Advisors</a></li>
+            <li><a href="about.html">The Life Advisors Team</a></li>
+          </ul>
+        </li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="about.html">About</a></li>
       </ul>
-      <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" data-event="consultation_cta_click" data-cta-location="header">Contact A Life Advisor</a></div>
+      <div class="nav-cta"><a class="btn btn-primary btn-sm" href="contact.html" data-event="consultation_cta_click" data-cta-location="header">Get My Free MCA Review</a></div>
     </nav>
   </header>
 
@@ -231,6 +238,86 @@
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <span aria-current="page">Resources</span></nav>
       <h1>MCA Resource Center</h1>
       <p>When cash flow is tight, another advance can appear to be the fastest answer. These resources are intended to help you evaluate the next decision with more information.</p>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <section id="mca-daily-draw" aria-label="Daily MCA draw calculator">
+        <div class="intro">
+          <div>
+            <h2>See what the daily draw means.</h2>
+            <p>Enter approximate numbers. The view updates as you type, and use Reset to restore the example.</p>
+          </div>
+          <div class="privacy">Private in this browser · Nothing is submitted</div>
+        </div>
+        <button type="button" class="btn btn-outline btn-sm reset" data-reset>Reset example</button>
+        <p class="error" data-error role="status" hidden></p>
+        <div class="workspace">
+          <section class="card" aria-labelledby="inputs-title">
+            <h3 id="inputs-title">Your business snapshot</h3>
+            <p class="hint">Use a typical operating day for a simple comparison.</p>
+            <div class="field">
+              <label for="revenue">Average daily revenue <small>estimate</small></label>
+              <div class="input-wrap"><span>$</span><input id="revenue" type="number" inputmode="decimal" min="0" step="0.01" value="2400" /></div>
+            </div>
+            <div class="field">
+              <label for="withdrawals">Total daily MCA withdrawals <small>all advances</small></label>
+              <div class="input-wrap"><span>$</span><input id="withdrawals" type="number" inputmode="decimal" min="0" step="0.01" value="600" /></div>
+            </div>
+            <div class="field">
+              <label for="advances">Number of active advances</label>
+              <div class="input-wrap"><input id="advances" type="number" inputmode="numeric" min="0" max="99" step="1" value="2" /></div>
+            </div>
+            <div class="field">
+              <p class="field-heading" id="mca-draw-type-label">What best describes your business?</p>
+              <div class="segments" role="group" aria-labelledby="mca-draw-type-label">
+                <button type="button" aria-pressed="true" data-sector="Restaurant">Restaurant</button>
+                <button type="button" aria-pressed="false" data-sector="Construction">Construction</button>
+                <button type="button" aria-pressed="false" data-sector="Retail">Retail</button>
+                <button type="button" aria-pressed="false" data-sector="Other">Other</button>
+              </div>
+            </div>
+          </section>
+          <section class="card result" aria-live="polite">
+            <h3>Your daily payment picture</h3>
+            <p class="hint">A simple ratio, before payroll, inventory, rent and other costs.</p>
+            <div class="metric">
+              <strong id="ratio">25%</strong>
+              <span>of daily revenue going to MCA withdrawals</span>
+            </div>
+            <div class="bar" role="meter" aria-label="Share of daily revenue used for MCA withdrawals" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" id="meter"><span id="fill"></span></div>
+            <div class="result-line">
+              <span>Daily revenue: <b id="rev-output">$2,400</b></span>
+              <span>Withdrawals: <b id="draw-output">$600</b></span>
+            </div>
+            <div class="insight">
+              <b id="insight-title">A useful starting point</b>
+              <p id="insight-text">At this level, one quarter of daily revenue is going to advance withdrawals. Look at what remains for operating costs and how the picture changes on slower days.</p>
+            </div>
+            <p class="note">This is an illustration based only on your entries. It does not calculate profit, total financing cost, eligibility, or a recommended course of action.</p>
+          </section>
+        </div>
+        <div class="lower">
+          <section class="card draw-steps">
+            <h3>Take the next step with the full picture</h3>
+            <ol>
+              <li><b>Collect every agreement.</b><span>Include payment schedules, balances, fees, and any reconciliation terms.</span></li>
+              <li><b>Compare busy and slow days.</b><span>Revenue fluctuates; fixed daily withdrawals may feel very different when sales dip.</span></li>
+              <li><b>Review options with a qualified adviser.</b><span>Ask what changes each option would make to cash flow and total cost.</span></li>
+            </ol>
+          </section>
+          <section class="card questions">
+            <h3>Questions worth asking</h3>
+            <ul id="questions">
+              <li>How much is withdrawn across all advances on an average operating day?</li>
+              <li>What happens to payments if revenue falls?</li>
+              <li>What is the total amount still owed under each agreement?</li>
+            </ul>
+            <p class="hint" style="margin-bottom:0">Bring the agreements and recent statements to the conversation. Terms vary by provider and contract.</p>
+          </section>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -261,6 +348,14 @@
             <p>A merchant cash advance is typically a purchase of future receivables with frequent withdrawals. Traditional business financing often uses underwriting, a defined repayment schedule, and interest. Speed, cost, and contract terms vary. This comparison is educational and is not legal, tax, or lending advice.</p>
           </div>
         </article>
+        <a class="article" href="how-it-works.html#what-youll-need" data-event="resource_card_click">
+          <div class="article-img article-img--education"><span>Process</span></div>
+          <div class="article-copy">
+            <h3>What You’ll Need to Get Started</h3>
+            <p>A checklist of documents typically requested after enrollment, including MCA agreements, bank statements, and related business information.</p>
+            <span class="text-link">See the Checklist</span>
+          </div>
+        </a>
       </div>
 
       <h2 class="mt-32" id="faq">Common questions</h2>
@@ -286,9 +381,9 @@
     <div class="container">
       <div class="footer-grid">
         <div><img class="footer-logo" src="images/LIF_LOGO-REVERSE.png" alt="Life Advisors" width="1020" height="276" loading="lazy" decoding="async" /><p>Life Advisors provides business-focused guidance for companies navigating merchant cash advance pressure and evaluating a path toward restructuring existing MCA obligations.</p><address class="footer-contact"><a href="tel:+18885116259">(888) 511-6259</a><br /><a href="mailto:support@lifead.com">support@lifead.com</a><br />2200 Corporate Boulevard NW, Suite 410<br />Boca Raton, FL 33431</address></div>
-        <div><h3>MCA Solutions</h3><ul><li><a href="mca-lifeline.html">The MCA Lifeline<span class="tm">™</span></a></li><li><a href="how-it-works.html">MCA Restructuring</a></li><li><a href="multiple-mcas.html">Multiple MCAs</a></li><li><a href="how-it-works.html">How It Works</a></li></ul></div>
+        <div><h3>MCA Solutions</h3><ul><li><a href="mca-lifeline.html">The MCA Lifeline<span class="tm">™</span></a></li><li><a href="multiple-mcas.html">Multiple MCAs</a></li><li><a href="how-it-works.html">How It Works</a></li></ul></div>
         <div><h3>Learn</h3><ul><li><a href="resources.html">Resource Center</a></li><li><a href="lp-before-another-mca.html">Before You Take Another MCA</a></li><li><a href="index.html#faq">Frequently Asked Questions</a></li><li><a href="why-life-advisors.html">Why Life Advisors</a></li></ul></div>
-        <div><h3>Company</h3><ul><li><a href="about.html">About Life Advisors</a></li><li><a href="about.html#team">Meet the Team</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
+        <div><h3>Company</h3><ul><li><a href="why-life-advisors.html">Why Life Advisors</a></li><li><a href="about.html">The Life Advisors Team</a></li><li><a href="contact.html">Contact</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Use</a></li></ul></div>
       </div>
       <nav class="footer-social" aria-label="Life Advisors on social media">
         <a href="https://www.facebook.com/lifeadvisorsanddevelopment" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -322,8 +417,8 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1.6c1.55 2.85 3.9 5 3.9 7.85 0 2.35-1.65 4.05-3.9 4.05s-3.9-1.7-3.9-4.05c0-2.85 2.35-5 3.9-7.85zM11.15 14.3h1.7v6.05c0 .85-.4 1.5-.85 1.95-.45-.45-.85-1.1-.85-1.95V14.3z"/></svg>
         </a>
       </nav>
-      <p class="footer-disclosure">Life Advisors provides business consulting and merchant cash advance restructuring services. Life Advisors is not a law firm and does not provide legal, tax, or accounting advice. Information on this website is educational and does not constitute professional advice or a guarantee of any result. Program availability, strategies, timelines, and outcomes vary according to the business, its agreements, funders, financial condition, participation, and other circumstances. Consult qualified legal, tax, or accounting professionals regarding your specific situation.</p>
-      <div class="legal"><span>© 2026 Life Advisors. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
+      <p class="footer-disclosure">Life Advisors and Development LLC provides business consulting and merchant cash advance restructuring services. Life Advisors is not a law firm and does not provide legal, tax, or accounting advice. Information on this website is educational and does not constitute professional advice or a guarantee of any result. Program availability, strategies, timelines, and outcomes vary according to the business, its agreements, funders, financial condition, participation, and other circumstances. Consult qualified legal, tax, or accounting professionals regarding your specific situation.</p>
+      <div class="legal"><span>© 2026 Life Advisors and Development LLC. All rights reserved.</span><span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span></div>
     </div>
   </footer>
   <script src="js/main.js"></script>

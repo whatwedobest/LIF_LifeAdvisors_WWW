@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Shaw;Timothy;T.;;
+FN:Timothy T. Shaw
+ORG:Life Advisors
+TITLE:Managing Partner
+EMAIL;TYPE=INTERNET,WORK:timothy@lifead.com
+TEL;TYPE=WORK,VOICE:+1-888-511-6259
+ADR;TYPE=WORK:;;2200 Corporate Boulevard Northwest\, Suite 410;Boca Raton;FL;33431;United States
+URL:https://lifead.com/timothy-shaw.html
+END:VCARD

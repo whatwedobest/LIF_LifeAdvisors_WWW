@@ -2,6 +2,7 @@
 User-agent: *
 Allow: /
 Disallow: /deliverables/
+Disallow: /thank-you.html
 
 # Search and AI answer engines are explicitly welcome
 User-agent: Googlebot
@@ -19,5 +20,6 @@ User-agent: Applebot
 User-agent: Applebot-Extended
 Allow: /
 Disallow: /deliverables/
+Disallow: /thank-you.html
 
 Sitemap: https://lifead.com/sitemap.xml
