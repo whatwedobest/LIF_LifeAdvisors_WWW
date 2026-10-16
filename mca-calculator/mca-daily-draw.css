@@ -1,0 +1,313 @@
+/* Scoped to #mca-daily-draw. Matches Life Advisors: Harbor #00587C, Coast #4298B5, Gold #C79A45, Slate #1E2529, Pale Mist #EFF3F5. */
+#mca-daily-draw {
+  font-family: inherit;
+  color: var(--ink, #1E2529);
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+  scroll-margin-top: calc(var(--header-h, 120px) + 16px);
+}
+#mca-daily-draw * { box-sizing: border-box; }
+#mca-daily-draw button,
+#mca-daily-draw input { font: inherit; }
+#mca-daily-draw button { cursor: pointer; }
+#mca-daily-draw [hidden] { display: none !important; }
+
+#mca-daily-draw .intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  margin-bottom: 24px;
+}
+#mca-daily-draw .intro > div:first-child {
+  flex: 1 1 28rem;
+  min-width: 0;
+}
+#mca-daily-draw .intro h2 {
+  margin: 0 0 12px;
+}
+#mca-daily-draw .intro p {
+  margin: 0;
+  color: var(--muted, #5c6368);
+  max-width: 42rem;
+}
+#mca-daily-draw .privacy {
+  flex: 0 0 auto;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--harbor, #00587C);
+  background: var(--white, #fff);
+  border: 1px solid var(--line, #d5dde1);
+  padding: 10px 14px;
+  border-radius: var(--radius, 4px);
+  white-space: nowrap;
+}
+
+#mca-daily-draw .reset {
+  margin: 0 0 20px;
+}
+#mca-daily-draw .error {
+  color: #9b2c2c;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+#mca-daily-draw .workspace,
+#mca-daily-draw .lower {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+  gap: 22px;
+  align-items: stretch;
+}
+#mca-daily-draw .lower {
+  grid-template-columns: 1fr 1fr;
+  margin-top: 22px;
+}
+
+#mca-daily-draw .card {
+  background: var(--white, #fff);
+  border: 1px solid var(--line, #d5dde1);
+  border-radius: var(--radius, 4px);
+  box-shadow: none;
+  padding: 36px 32px;
+  min-height: 0;
+  min-width: 0;
+}
+#mca-daily-draw .card h3 {
+  margin: 0 0 8px;
+}
+#mca-daily-draw .hint {
+  color: var(--muted, #5c6368);
+  font-size: .92rem;
+  line-height: 1.5;
+  margin: 0 0 22px;
+}
+
+#mca-daily-draw .field { margin: 20px 0; }
+#mca-daily-draw .field:last-child { margin-bottom: 0; }
+#mca-daily-draw .field label,
+#mca-daily-draw .field-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-weight: 700;
+  font-size: .85rem;
+  margin-bottom: 8px;
+  color: var(--ink, #1E2529);
+}
+#mca-daily-draw .field small {
+  color: var(--muted, #5c6368);
+  font-weight: 500;
+}
+#mca-daily-draw .input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--line, #d5dde1);
+  border-radius: var(--radius, 4px);
+  background: var(--white, #fff);
+  overflow: hidden;
+}
+#mca-daily-draw .input-wrap span {
+  padding: 0 0 0 14px;
+  color: var(--muted, #5c6368);
+  font-weight: 700;
+}
+#mca-daily-draw .input-wrap input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  outline: 0;
+  padding: 13px 14px;
+  color: var(--ink, #1E2529);
+  min-width: 0;
+}
+#mca-daily-draw .input-wrap:focus-within {
+  border-color: var(--coast, #4298B5);
+  box-shadow: 0 0 0 3px rgba(66, 152, 181, .16);
+}
+#mca-daily-draw input[aria-invalid="true"] {
+  box-shadow: none;
+}
+#mca-daily-draw .input-wrap:has(input[aria-invalid="true"]) {
+  border-color: #9b2c2c;
+}
+
+#mca-daily-draw .segments {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+#mca-daily-draw .segments button {
+  border: 1.5px solid var(--line, #d5dde1);
+  border-radius: var(--radius, 4px);
+  background: var(--white, #fff);
+  padding: 10px 14px;
+  color: var(--ink, #1E2529);
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+#mca-daily-draw .segments button[aria-pressed="true"] {
+  background: var(--harbor, #00587C);
+  color: var(--white, #fff);
+  border-color: var(--harbor, #00587C);
+}
+
+#mca-daily-draw button:focus-visible,
+#mca-daily-draw input:focus-visible {
+  outline: 2px solid var(--gold, #C79A45);
+  outline-offset: 2px;
+}
+#mca-daily-draw .input-wrap:focus-within input:focus-visible {
+  outline: none;
+}
+
+#mca-daily-draw .result {
+  background: var(--harbor, #00587C);
+  color: var(--white, #fff);
+  border-color: var(--harbor, #00587C);
+  display: flex;
+  flex-direction: column;
+}
+#mca-daily-draw .result h3 { color: var(--white, #fff); }
+#mca-daily-draw .result .hint { color: rgba(255, 255, 255, .78); }
+#mca-daily-draw .metric {
+  margin: 16px 0 18px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+#mca-daily-draw .metric strong {
+  font-family: Fraunces, Georgia, serif;
+  font-size: clamp(3rem, 6vw, 4.8rem);
+  font-weight: 560;
+  line-height: 1;
+  letter-spacing: -.04em;
+  color: var(--white, #fff);
+}
+#mca-daily-draw .metric span {
+  max-width: 11.5rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, .78);
+  font-size: .91rem;
+}
+#mca-daily-draw .bar {
+  height: 12px;
+  background: rgba(255, 255, 255, .18);
+  border-radius: 30px;
+  overflow: hidden;
+}
+#mca-daily-draw .bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--gold, #C79A45);
+  border-radius: 30px;
+  transition: width .35s ease;
+}
+#mca-daily-draw .result-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .78);
+  margin: 12px 0 28px;
+}
+#mca-daily-draw .result-line b { color: var(--white, #fff); font-weight: 700; }
+#mca-daily-draw .insight {
+  background: rgba(0, 0, 0, .16);
+  border-left: 4px solid var(--gold, #C79A45);
+  padding: 17px 18px;
+  border-radius: 0 var(--radius, 4px) var(--radius, 4px) 0;
+  line-height: 1.55;
+}
+#mca-daily-draw .insight b {
+  display: block;
+  color: var(--white, #fff);
+  margin-bottom: 4px;
+}
+#mca-daily-draw .insight p {
+  margin: 0;
+  color: rgba(255, 255, 255, .88);
+}
+#mca-daily-draw .note {
+  font-size: .78rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, .7);
+  margin: 18px 0 0;
+}
+
+#mca-daily-draw .draw-steps {
+  display: block;
+}
+#mca-daily-draw .draw-steps ol {
+  list-style: decimal;
+  margin: 22px 0 0;
+  padding-left: 22px;
+}
+#mca-daily-draw .draw-steps li {
+  padding-left: 5px;
+  margin: 0 0 18px;
+  line-height: 1.5;
+  color: var(--ink, #1E2529);
+}
+#mca-daily-draw .draw-steps li::marker {
+  font-weight: 700;
+  color: var(--harbor, #00587C);
+}
+#mca-daily-draw .draw-steps li span {
+  display: block;
+  color: var(--muted, #5c6368);
+  font-size: .9rem;
+}
+#mca-daily-draw .questions {
+  background: #e8f3f7;
+  border-color: #d0e5eb;
+}
+#mca-daily-draw .questions ul {
+  list-style: disc;
+  padding-left: 1.2em;
+  line-height: 1.55;
+  color: var(--ink, #1E2529);
+}
+#mca-daily-draw .questions li {
+  margin-bottom: 13px;
+}
+#mca-daily-draw .questions li::marker {
+  color: var(--harbor, #00587C);
+}
+
+@media (max-width: 960px) {
+  #mca-daily-draw .intro {
+    flex-direction: column;
+  }
+  #mca-daily-draw .privacy {
+    text-align: left;
+    max-width: 100%;
+    flex-basis: auto;
+    white-space: normal;
+  }
+}
+@media (max-width: 800px) {
+  #mca-daily-draw .workspace,
+  #mca-daily-draw .lower {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #mca-daily-draw .card { padding: 28px 22px; }
+}
+@media (max-width: 480px) {
+  #mca-daily-draw .result-line { flex-direction: column; }
+  #mca-daily-draw .metric { flex-wrap: wrap; }
+  #mca-daily-draw .field label,
+  #mca-daily-draw .field-heading { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #mca-daily-draw .bar span { transition: none; }
+}
