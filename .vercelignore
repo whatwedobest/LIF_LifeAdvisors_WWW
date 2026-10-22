@@ -1,0 +1,8 @@
+.git
+.DS_Store
+.env
+.env.*
+deliverables
+mca-calculator/CURSOR-PROMPT.txt
+mca-calculator/preview.html
+mca-calculator/README.md

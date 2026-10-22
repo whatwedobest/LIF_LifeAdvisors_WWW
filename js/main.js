@@ -125,6 +125,41 @@ function setSmsStatus(form, message, kind) {
   status.classList.toggle("is-error", kind === "error");
 }
 
+const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+
+function readStoredUtms() {
+  try {
+    return JSON.parse(sessionStorage.getItem("la_utm") || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function persistUtms() {
+  const params = new URLSearchParams(location.search);
+  const stored = readStoredUtms();
+  UTM_KEYS.forEach((key) => {
+    const value = params.get(key);
+    if (value) stored[key] = value.slice(0, 200);
+  });
+  try {
+    sessionStorage.setItem("la_utm", JSON.stringify(stored));
+  } catch {
+    /* private mode */
+  }
+  return stored;
+}
+
+function fillUtmFields(form) {
+  const stored = persistUtms();
+  UTM_KEYS.forEach((key) => {
+    const input = form.querySelector(`[name="${key}"]`);
+    if (input) input.value = stored[key] || "";
+  });
+}
+
+persistUtms();
+
 document.querySelectorAll(".contact-form[data-multistep]").forEach((form) => {
   const steps = [...form.querySelectorAll("[data-form-step]")];
   const progress = [...form.querySelectorAll(".form-progress-step")];
@@ -237,27 +272,89 @@ document.querySelectorAll(".contact-form[data-multistep]").forEach((form) => {
     showStep(0);
   });
 
-  form.addEventListener("submit", (e) => {
+  fillUtmFields(form);
+
+  const submitError = form.querySelector("[data-form-error]");
+  const setSubmitError = (message) => {
+    if (!submitError) return;
+    submitError.hidden = !message;
+    submitError.textContent = message || "";
+  };
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (current === 0) {
       form.querySelector("[data-form-next]")?.click();
       return;
     }
     if (!fieldsValid(steps[1])) return;
+    if (!form.querySelector("#consent-contact")?.checked) {
+      setSubmitError("Please agree to be contacted to send this request.");
+      return;
+    }
+
+    fillUtmFields(form);
     const btn = form.querySelector("[type=submit]");
+    const original = btn?.textContent;
     if (btn) {
       btn.textContent = "Sending…";
       btn.disabled = true;
     }
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      event: "consultation_form_submit",
-      location: form.dataset.formLocation || "",
-      sms: smsState
-    });
-    setTimeout(() => {
+    setSubmitError("");
+
+    const data = new FormData(form);
+    const payload = {
+      first: data.get("first"),
+      last: data.get("last"),
+      phone: data.get("phone"),
+      email: data.get("email"),
+      business: data.get("business"),
+      mcaCount: data.get("mca-count"),
+      state: data.get("state"),
+      industry: data.get("industry"),
+      revenue: data.get("revenue"),
+      balance: data.get("balance"),
+      current: data.get("current"),
+      contactTime: data.get("contact-time"),
+      message: data.get("message"),
+      smsConsent: data.get("consent-sms") === "yes",
+      smsStatus: smsState === "verified" || smsState === "skipped" ? smsState : "idle",
+      contactConsent: data.get("consent-contact") === "on" || form.querySelector("#consent-contact")?.checked,
+      formLocation: form.dataset.formLocation || "",
+      utm_source: data.get("utm_source"),
+      utm_medium: data.get("utm_medium"),
+      utm_campaign: data.get("utm_campaign"),
+      utm_content: data.get("utm_content"),
+      utm_term: data.get("utm_term"),
+      company_url: data.get("company_url")
+    };
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok || !result.ok) {
+        throw new Error(result.error || "Send failed");
+      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "consultation_form_submit",
+        location: form.dataset.formLocation || "",
+        sms: smsState
+      });
       window.location.href = "thank-you.html";
-    }, 700);
+    } catch (err) {
+      const fallback = "We could not send your request. Please call (888) 511-6259.";
+      const message = err?.message && /511-6259/.test(err.message) ? err.message : fallback;
+      setSubmitError(message);
+      if (btn) {
+        btn.textContent = original || "Request a Confidential Consultation";
+        btn.disabled = false;
+      }
+    }
   });
 });
 

@@ -9,8 +9,11 @@ Approved wireframe (archive only): [LIF_LifeAdvisors_LifeAD](https://github.com/
 | URL | Purpose |
 |-----|---------|
 | **http://localhost:8080/** | Edit and review locally (run server from **this** folder) |
-| **https://whatwedobest.github.io/LIF_LifeAdvisors_WWW/** | Shared test site after merge to `main` (→ Vercel + domain) |
+| **https://whatwedobest.github.io/LIF_LifeAdvisors_WWW/** | Shared test site after merge to `main` |
+| **https://lifead.com/** | Production (Vercel team `lifeadvisors` + Cloudflare DNS) |
 | **https://whatwedobest.github.io/LIF_LifeAdvisors_LifeAD/** | Old homepage wireframe only — not this site |
+
+Go-live steps (Vercel project, Cloudflare records to change, records to leave alone): [DEPLOY.md](DEPLOY.md)
 
 1. Work on branch `preview` (or a feature branch off `main`).
 2. Review at http://localhost:8080
