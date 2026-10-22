@@ -414,11 +414,9 @@
           </div>
           <div class="form-group">
             <label for="phone">Business phone</label>
-            <div class="phone-verify">
-              <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" />
-              <!-- Launch: SMS verification UI hidden; re-enable with consent, code field, and /api/lead smsStatus. -->
-              <button class="btn btn-outline btn-sm" type="button" data-sms-send hidden>Send code</button>
-            </div>
+            <!-- Launch: SMS verification UI hidden; restore phone-verify + Send code with consent/code field. -->
+            <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" />
+            <button class="btn btn-outline btn-sm" type="button" data-sms-send hidden>Send code</button>
             <p class="subnote" id="phone-hint" hidden>We’ll text a verification code to confirm this number. Msg &amp; data rates may apply.</p>
           </div>
           <div class="form-group checkbox" hidden>
