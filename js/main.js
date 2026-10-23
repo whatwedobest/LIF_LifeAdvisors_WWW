@@ -171,7 +171,9 @@ document.querySelectorAll(".contact-form[data-multistep]").forEach((form) => {
   const checkBtn = form.querySelector("[data-sms-check]");
   const skipBtn = form.querySelector("[data-sms-skip]");
   let current = 0;
-  let smsState = "idle";
+  // Launch: SMS UI is hidden; treat every submission as skipped until verification returns.
+  let smsState = "skipped";
+  form.dataset.smsVerified = "skipped";
 
   const showStep = (index) => {
     current = index;
@@ -317,8 +319,8 @@ document.querySelectorAll(".contact-form[data-multistep]").forEach((form) => {
       current: data.get("current"),
       contactTime: data.get("contact-time"),
       message: data.get("message"),
-      smsConsent: data.get("consent-sms") === "yes",
-      smsStatus: smsState === "verified" || smsState === "skipped" ? smsState : "idle",
+      smsConsent: false,
+      smsStatus: "skipped",
       contactConsent: data.get("consent-contact") === "on" || form.querySelector("#consent-contact")?.checked,
       formLocation: form.dataset.formLocation || "",
       utm_source: data.get("utm_source"),

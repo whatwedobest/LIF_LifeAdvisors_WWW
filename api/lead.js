@@ -130,9 +130,10 @@ module.exports = async function handler(req, res) {
   const current = oneOf(trim(body.current, 40), CURRENT);
   const contactTime = oneOf(trim(body.contactTime || body["contact-time"], 40), CONTACT_TIME);
   const formLocation = oneOf(trim(body.formLocation, 40), FORM_LOCATION);
-  const smsStatus = oneOf(trim(body.smsStatus, 20), SMS_STATUS) || "idle";
+  // Launch: always record SMS as skipped while verification UI is hidden on forms.
+  const smsStatus = "skipped";
   const message = trim(body.message, 4000);
-  const smsConsent = Boolean(body.smsConsent);
+  const smsConsent = false;
   const contactConsent = Boolean(body.contactConsent);
 
   if (!contactConsent) {

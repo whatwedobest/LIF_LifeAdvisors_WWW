@@ -33,6 +33,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* Beat display:flex rules (e.g. .form-group.checkbox, .btn) that override the UA [hidden] style. */
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; }
 body {
   font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
