@@ -30,7 +30,8 @@ const COL = {
   utmMedium: "text_mm8ceyz1",
   utmCampaign: "text_mm8cg7b4",
   utmContent: "text_mm8cvm6d",
-  utmTerm: "text_mm8cw9m3"
+  utmTerm: "text_mm8cw9m3",
+  channel: "dropdown_mm8dqkwg"
 };
 
 const MCA_COUNT = ["1", "2", "3", "4 or more", "Unsure"];
@@ -73,6 +74,29 @@ function oneOf(value, allowed) {
 function moneyOption(value) {
   const normalized = String(value || "").trim().replace(/-/g, "\u2013");
   return oneOf(normalized, MONEY);
+}
+
+function resolveChannel(body) {
+  const source = trim(body.utm_source, 200).toLowerCase();
+  const medium = trim(body.utm_medium, 200).toLowerCase();
+  const gclid = trim(body.gclid, 200);
+
+  if (["facebook", "fb", "instagram", "ig", "meta"].includes(source)) {
+    return "Meta \u2013 landing page";
+  }
+  if (["google", "adwords"].includes(source) || gclid) {
+    return "Google Ads";
+  }
+  if (["linkedin", "li"].includes(source)) {
+    return "LinkedIn";
+  }
+  if (["vibe", "ctv"].includes(source)) {
+    return "Vibe CTV";
+  }
+  if (source === "mcarocket" || medium === "referral" || medium === "partner") {
+    return "Referral / partner";
+  }
+  return "Website \u2013 organic/direct";
 }
 
 function phoneE164(value) {
@@ -184,6 +208,8 @@ module.exports = async function handler(req, res) {
   Object.entries(utm).forEach(([id, value]) => {
     if (value) columnValues[id] = value;
   });
+
+  columnValues[COL.channel] = { labels: [resolveChannel(body)] };
 
   const itemName = `${business} — ${first} ${last}`.slice(0, 200);
   const query = `

@@ -125,7 +125,15 @@ function setSmsStatus(form, message, kind) {
   status.classList.toggle("is-error", kind === "error");
 }
 
-const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+const UTM_KEYS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_content",
+  "utm_term",
+  "gclid",
+  "fbclid"
+];
 
 function readStoredUtms() {
   try {
@@ -145,16 +153,19 @@ function persistUtms() {
   try {
     sessionStorage.setItem("la_utm", JSON.stringify(stored));
   } catch {
-    /* private mode */
+    /* private mode / quota */
   }
   return stored;
 }
 
 function fillUtmFields(form) {
+  const params = new URLSearchParams(location.search);
   const stored = persistUtms();
   UTM_KEYS.forEach((key) => {
     const input = form.querySelector(`[name="${key}"]`);
-    if (input) input.value = stored[key] || "";
+    if (!input) return;
+    const fromUrl = params.get(key);
+    input.value = (fromUrl || stored[key] || "").slice(0, 200);
   });
 }
 
@@ -328,6 +339,8 @@ document.querySelectorAll(".contact-form[data-multistep]").forEach((form) => {
       utm_campaign: data.get("utm_campaign"),
       utm_content: data.get("utm_content"),
       utm_term: data.get("utm_term"),
+      gclid: data.get("gclid"),
+      fbclid: data.get("fbclid"),
       company_url: data.get("company_url")
     };
 
