@@ -145,11 +145,18 @@ function readStoredUtms() {
 
 function persistUtms() {
   const params = new URLSearchParams(location.search);
-  const stored = readStoredUtms();
-  UTM_KEYS.forEach((key) => {
-    const value = params.get(key);
-    if (value) stored[key] = value.slice(0, 200);
-  });
+  // Any utm_* / gclid / fbclid in the URL is a new visit: replace the whole set.
+  const urlHasAttribution = UTM_KEYS.some((key) => params.has(key));
+  let stored;
+  if (urlHasAttribution) {
+    stored = {};
+    UTM_KEYS.forEach((key) => {
+      const value = params.get(key);
+      if (value) stored[key] = value.slice(0, 200);
+    });
+  } else {
+    stored = readStoredUtms();
+  }
   try {
     sessionStorage.setItem("la_utm", JSON.stringify(stored));
   } catch {
@@ -159,13 +166,11 @@ function persistUtms() {
 }
 
 function fillUtmFields(form) {
-  const params = new URLSearchParams(location.search);
   const stored = persistUtms();
   UTM_KEYS.forEach((key) => {
     const input = form.querySelector(`[name="${key}"]`);
     if (!input) return;
-    const fromUrl = params.get(key);
-    input.value = (fromUrl || stored[key] || "").slice(0, 200);
+    input.value = (stored[key] || "").slice(0, 200);
   });
 }
 
