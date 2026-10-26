@@ -10,6 +10,56 @@
       "permanent": true
     },
     {
+      "source": "/About",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/Contact",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/Services",
+      "destination": "/mca-lifeline.html",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/mca-lifeline.html",
+      "permanent": true
+    },
+    {
+      "source": "/Privacy",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html",
+      "permanent": true
+    },
+    {
+      "source": "/Terms",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.lifead.com" }],
       "destination": "https://lifead.com/:path*",
