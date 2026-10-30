@@ -409,3 +409,45 @@ document.querySelectorAll(".upload-form").forEach((form) => {
     }
   });
 });
+
+// Email buttons: mailto: links do nothing on computers with no default email app
+// (common for Gmail/Outlook-in-browser users). Copy the address on click and show it,
+// so visitors can always reach us; the mailto: still opens the email app when one exists.
+(function emailLinkFallback() {
+  const links = document.querySelectorAll('a[href^="mailto:"]');
+  if (!links.length) return;
+  let toast;
+  let hideTimer;
+  function showToast(address, copied) {
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.className = "email-toast";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      document.body.appendChild(toast);
+    }
+    toast.textContent = "";
+    const line = document.createElement("strong");
+    line.textContent = address;
+    const note = document.createElement("span");
+    note.textContent = copied
+      ? "Copied. If your email app didn't open, paste this into a new message."
+      : "If your email app didn't open, send your message to this address.";
+    toast.append(line, note);
+    toast.classList.add("is-visible");
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => toast.classList.remove("is-visible"), 6000);
+  }
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      const address = decodeURIComponent((link.getAttribute("href") || "").replace(/^mailto:/i, "").split("?")[0]);
+      if (!address) return;
+      const done = (ok) => showToast(address, ok);
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(address).then(() => done(true), () => done(false));
+      } else {
+        done(false);
+      }
+    });
+  });
+})();

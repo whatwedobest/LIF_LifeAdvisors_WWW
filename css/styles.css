@@ -1199,3 +1199,28 @@ main:focus { outline: none; }
 .footer-contact { font-style: normal; margin-top: 16px; font-size: .92rem; line-height: 1.8; }
 .footer-contact a { color: inherit; }
 .footer-contact a:hover { color: var(--gold); }
+
+/* Email link fallback toast (js/main.js emailLinkFallback) */
+.email-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 1000;
+  display: grid;
+  gap: 4px;
+  max-width: min(92vw, 420px);
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: var(--harbor-deep);
+  color: #fff;
+  font-size: .92rem;
+  line-height: 1.4;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .22);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+.email-toast strong { font-size: 1rem; word-break: break-all; }
+.email-toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { .email-toast { transition: none; } }
